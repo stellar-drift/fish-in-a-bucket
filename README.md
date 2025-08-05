@@ -1,2 +1,3 @@
 # fishing-pier
-just a day-to-night loop using pygame
+
+loops infinite transition between four files: day to dusk to night to twilight to day
