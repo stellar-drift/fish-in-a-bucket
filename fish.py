@@ -40,3 +40,34 @@ class Fish(pygame.sprite.Sprite):
 
         # vertical bobbing relative to start_y
         self.rect.centery = self.start_y + self.amp_y * math.sin(self.time * self.speed * 0.5)
+
+
+if __name__ == "__main__":
+    import pygame
+    import sys
+
+    pygame.init()
+    screen = pygame.display.set_mode((480, 270))
+    clock = pygame.time.Clock()
+
+    # test fish
+    fh_size = (48, 27)
+    test_fh = Fish("assets/fish.png", fh_size)
+    all_fish = pygame.sprite.Group(test_fh)
+
+    running = True
+    while running:
+        dt = clock.tick(60) / 1000
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+        # draw fish
+        all_fish.update(dt)
+        screen.fill("#00000a")
+        all_fish.draw(screen)
+
+        pygame.display.flip()
+
+    pygame.quit()
+    sys.exit()
