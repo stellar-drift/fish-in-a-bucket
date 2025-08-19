@@ -1,27 +1,23 @@
 
 
 import pygame
-from scene import Scene
-from fish import Fish
-import random
+from Scene import Scene
+from Fish import Fish
+from Animation import FishAnimation
 
-pygame.init()
+
 pygame.init()
 
 SIZE_BG = (480, 270)
 SIZE_FH = (17, 11)
 
-
-
 screen = pygame.display.set_mode(SIZE_BG)        # set window size
 clock = pygame.time.Clock()     # Clock object to control frame rate and track time between frames
 
 scene = Scene(SIZE_BG)
-fish = Fish("assets/fish.png", size = SIZE_FH)
+fish = Fish("assets/fish/fish_idle.png", size = SIZE_FH, animation_cls=FishAnimation)
 
-# sprite group for updates/drawing
-all_fish = pygame.sprite.Group(fish)
-
+all_fish = pygame.sprite.Group(fish)    # sprite group for updates/drawing
 
 # run/draw/quit logic
 running = True

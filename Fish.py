@@ -1,10 +1,9 @@
 import pygame
-import math
 import random
 
 class Fish(pygame.sprite.Sprite):
     # class constructor
-    def __init__(self, image_path, size):
+    def __init__(self, image_path, size, animation_cls):
         super().__init__()      # call constructor of superclass Sprite
 
         # load and scale sprite
@@ -24,27 +23,19 @@ class Fish(pygame.sprite.Sprite):
         if self.direction == -1:
             self.image = pygame.transform.flip(self.og_img, True, False)
 
-        # bobbing parameters
-        self.amp_x = 30
-        self.amp_y = 15
-        self.speed = 2
-        self.time = 0
+        self.animation = animation_cls()    # plug in animation
 
 
     def update(self, dt):       # sprite logic per frame
-        self.time += dt
-
-        # horizontal bobbing relative to start_x
-        offset_x = self.amp_x * math.sin(self.time * self.speed) * self.direction
-        self.rect.centerx = self.start_x + offset_x
-
-        # vertical bobbing relative to start_y
-        self.rect.centery = self.start_y + self.amp_y * math.sin(self.time * self.speed * 0.5)
+        new_x, new_y = self.animation.update(dt, self.start_x, self.start_y, self.direction)
+        self.rect.centerx, self.rect.centery = new_x, new_y
 
 
+# main guard
 if __name__ == "__main__":
     import pygame
     import sys
+    from Animation import FishAnimation
 
     pygame.init()
     screen = pygame.display.set_mode((480, 270))
@@ -52,7 +43,7 @@ if __name__ == "__main__":
 
     # test fish
     fh_size = (48, 27)
-    test_fh = Fish("assets/fish.png", fh_size)
+    test_fh = Fish("assets/fish/fish_idle.png", fh_size, FishAnimation)
     all_fish = pygame.sprite.Group(test_fh)
 
     running = True
