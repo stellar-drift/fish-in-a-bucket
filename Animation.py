@@ -2,7 +2,7 @@
 import math
 
 
-class FishAnimation:
+class FishAnimation:        # fish animation houses the bobbing effect
     def __init__(self, amp_x=30, amp_y=15, speed=2):
         self.amp_x = amp_x
         self.amp_y = amp_y
