@@ -9,9 +9,11 @@ class Fish(pygame.sprite.Sprite):
         # components
         self.state_machine = state_machine_cls()    # state machine -- tracks logical state (idle, hooked, caught) and any timers
         self.animation = animation_cls()            # controls animation independent of state
-        self.state_imgs = {                      # map each state to a scaled image for rendering
-            state: pygame.transform.scale(img, size)
-            for state, img in state_imgs.items()
+
+        # map each state to a scaled image for rendering
+        self.state_imgs = {
+            # dictionary comprehension = {key_expression: value_expression for item in iterable}
+            state: pygame.transform.scale(img, size) for (state, img) in state_imgs.items()
         }
 
         # initial image, rect, and starting positions
