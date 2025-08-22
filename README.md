@@ -8,4 +8,3 @@
 TODO:
 - clean up & refactor
 - allow drop-into-bucket: currently fish are only destroyed when they're dragged over the bucket and released, and not when dropped in
-- allow drop-into-bucket: currently fish are only destroyed when they're dragged over the bucket and released, and not when dropped in
