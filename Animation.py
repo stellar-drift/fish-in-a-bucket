@@ -1,3 +1,6 @@
+# this script handles animations
+
+
 
 import math
 

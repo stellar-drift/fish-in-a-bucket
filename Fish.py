@@ -1,3 +1,6 @@
+# this script handles the fish class
+
+
 import pygame
 import random
 
@@ -23,6 +26,7 @@ class Fish(pygame.sprite.Sprite):
         self.start_x = self.rect.centerx  # get initial x position
         self.start_y = self.rect.centery  # get initial y position
         self.direction = random.choice([1, -1])         # face direction (1 = right, -1 = left)
+        self.direction = random.choice([1, -1])         # face direction (1 = right, -1 = left)
         if self.direction == -1:    # flip image if facing left
             self.image = pygame.transform.flip(self.image, True, False)
 
@@ -39,6 +43,7 @@ class Fish(pygame.sprite.Sprite):
         self.state_machine.update(dt)       # update the state machine
         self._update_position(dt)
         self._update_image()
+        self._bucket_drop(dt)
 
     def _update_position(self, dt):
         # update position using animation if not dragging
@@ -67,6 +72,12 @@ class Fish(pygame.sprite.Sprite):
             img = pygame.transform.flip(img, True, False)
         self.image = img
 
+    def _bucket_drop(self, dt):
+        state = self.state_machine.get_state()
+        if state == "falling_into_bucket":
+            self.rect.centery += 200*dt # fall speed
+            if self.rect.top > 80:      # once the fish is "inside" the bucket, kill it
+                self.kill()
 
 
     # mouse events: drag and click
@@ -85,18 +96,20 @@ class Fish(pygame.sprite.Sprite):
             else:   # released below water line -- stay in place
                 self.start_x, self.start_y = self.rect.center
                 self.state_machine.change_state("idle")
-        elif self.state_machine.get_state() == "hooked":
-            self.state_machine.change_state("idle")     # on release, revert to idle
 
-        # reset drag state
-        self.dragging = False
-        self.is_mouse_down = False
+            # reset drag state
+            self.dragging = False
+            self.is_mouse_down = False
+            return True
+
+        return False
 
     def mouse_motion(self, mouse_pos):
         if self.dragging:
             self.rect.center = (        # drag fish with mouse
                 mouse_pos[0] + self.drag_offset[0],
                 mouse_pos[1] + self.drag_offset[1])
+
 
 
 

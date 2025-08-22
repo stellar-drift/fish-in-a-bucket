@@ -1,5 +1,11 @@
 # fishing-pier
 
-- infinitely loops a transition between four files: day to dusk to night to twilight to day
+- infinitely loops a transition between four files: from day to dusk to night to twilight back to day
 - has a fish that swims around
 - you can click, drag, and drop the fish
+- you can drag fish to the bucket to collect them
+
+TODO:
+- clean up & refactor
+- allow drop-into-bucket: currently fish are only destroyed when they're dragged over the bucket and released, and not when dropped in
+- allow drop-into-bucket: currently fish are only destroyed when they're dragged over the bucket and released, and not when dropped in

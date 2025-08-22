@@ -1,3 +1,5 @@
+# this script handles states
+
 import random
 
 class FishState:
@@ -22,4 +24,8 @@ class FishState:
 
         if new_state == "hooked":
             self.hooked_duration = random.uniform(2.0, 7.0)    # (second) use a random time duration for how long the fish stays hooked
+
+        elif new_state == "falling_into_bucket":
+            # Fish handles kill, no auto transition is needed here
+            pass
 

@@ -1,3 +1,5 @@
+# this script handles the looping background image transition
+
 import pygame
 
 
@@ -16,7 +18,7 @@ class Scene:
         ]
 
         # animation variables
-        self.images = [load_and_scale(f, size) for f in filenames]       # use list comprehension; for each index in list, call the function
+        self.images = [load_and_scale(f, size) for f in filenames]       # list comprehension; for each index in list, call the function
         self.current_idx = 0
         self.alpha = 0
         self.base = self.images[self.current_idx]
@@ -64,7 +66,7 @@ def load_and_scale(filename, size):
     return pygame.transform.scale(img, size)
 
 
-
+# main guard
 if __name__ == "__main__":
     import pygame
 
