@@ -5,7 +5,7 @@ class Bucket(pygame.sprite.Sprite):
     def __init__(self):
             super().__init__()
 
-            self.image = pygame.image.load('assets/images/fish_bucket.png').convert_alpha()    # load image
+            self.image = pygame.image.load('../assets/images/fish_bucket.png').convert_alpha()    # load image
             self.image = pygame.transform.scale(self.image, (36,34))        # overwrite with scaled down image
             self.rect = self.image.get_rect(center=(350,80))   # attribute defines where the image is on screen
 

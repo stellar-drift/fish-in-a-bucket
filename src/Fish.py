@@ -10,7 +10,7 @@ class Fish(pygame.sprite.Sprite):
         super().__init__()      # call constructor of superclass Sprite
 
         # components
-        self.state_machine = state_machine_cls()    # state machine -- tracks logical state (idle, hooked, caught) and any timers
+        self.state_machine = state_machine_cls    # state machine -- tracks logical state (idle, hooked, caught) and any timers
         self.animation = animation_instance         # controls animation independent of state
 
         # map each state to a scaled image for rendering

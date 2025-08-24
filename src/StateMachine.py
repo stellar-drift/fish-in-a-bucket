@@ -7,6 +7,7 @@ class FishState:
         self.state = "idle"
         self.state_timer = 0        # timer for current state
         self.hooked_duration = 0    # timer for being hooked
+        self.fish_collected = 0     # tracks number of fish collected
 
     def get_state(self):
         return self.state
@@ -28,4 +29,7 @@ class FishState:
         elif new_state == "falling_into_bucket":
             # Fish handles kill, no auto transition is needed here
             pass
+
+    def collected_fish(self):
+        self.fish_collected += 1
 
