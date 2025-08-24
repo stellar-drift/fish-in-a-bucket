@@ -11,10 +11,10 @@ class Scene:
 
         # list filenames
         filenames = [
-            "assets/images/background/pier_day.png",
-            "assets/images/background/pier_dusk.png",
-            "assets/images/background/pier_night.png",
-            "assets/images/background/pier_twilight.png"
+            "../assets/images/background/pier_day.png",
+            "../assets/images/background/pier_dusk.png",
+            "../assets/images/background/pier_night.png",
+            "../assets/images/background/pier_twilight.png"
         ]
 
         # animation variables

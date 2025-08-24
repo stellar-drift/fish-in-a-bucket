@@ -18,8 +18,8 @@ def main():
     clock = pygame.time.Clock()     # Clock object to control frame rate and track time between frames
 
     # load images
-    idle_image = pygame.image.load("assets/images/fish/fish_idle.png").convert_alpha()
-    hooked_image = pygame.image.load("assets/images/fish/fish_hooked.png").convert_alpha()
+    idle_image = pygame.image.load("../assets/images/fish/fish_idle.png").convert_alpha()
+    hooked_image = pygame.image.load("../assets/images/fish/fish_hooked.png").convert_alpha()
 
     # image dictionary
     state_imgs = {
@@ -40,8 +40,6 @@ def main():
                 animation_instance=FishAnimation(speed=random.uniform(0.5,5.0))
             )
         )
-
-
 
     all_fish = pygame.sprite.Group(fish_list)    # sprite group/container for managing multiple sprites
     one_bucket = pygame.sprite.GroupSingle(bucket)
