@@ -118,15 +118,15 @@ class Fish(pygame.sprite.Sprite):
 if __name__ == "__main__":
     import sys
     from Animation import FishAnimation
-    from state_machine import FishState
+    from StateMachine import FishState
 
     pygame.init()
     screen = pygame.display.set_mode((480, 270))
     clock = pygame.time.Clock()
 
     # load images for test fish
-    idle_image = pygame.image.load("assets/fish/fish_idle.png").convert_alpha()
-    hooked_image = pygame.image.load("assets/fish/fish_hooked.png").convert_alpha()
+    idle_image = pygame.image.load("assets/images/fish/fish_idle.png").convert_alpha()
+    hooked_image = pygame.image.load("assets/images/fish/fish_hooked.png").convert_alpha()
 
     imgs_by_state = {
         "idle": idle_image,

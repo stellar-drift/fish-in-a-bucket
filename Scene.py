@@ -11,10 +11,10 @@ class Scene:
 
         # list filenames
         filenames = [
-            "assets/background/pier_day.png",
-            "assets/background/pier_dusk.png",
-            "assets/background/pier_night.png",
-            "assets/background/pier_twilight.png"
+            "assets/images/background/pier_day.png",
+            "assets/images/background/pier_dusk.png",
+            "assets/images/background/pier_night.png",
+            "assets/images/background/pier_twilight.png"
         ]
 
         # animation variables
@@ -68,7 +68,6 @@ def load_and_scale(filename, size):
 
 # main guard
 if __name__ == "__main__":
-    import pygame
 
     pygame.init()
     screen = pygame.display.set_mode((480, 270))

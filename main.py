@@ -5,7 +5,7 @@ from Scene import Scene
 from Fish import Fish
 from Bucket import Bucket
 from Animation import FishAnimation
-from state_machine import FishState
+from StateMachine import FishState
 
 
 def main():
@@ -18,8 +18,8 @@ def main():
     clock = pygame.time.Clock()     # Clock object to control frame rate and track time between frames
 
     # load images
-    idle_image = pygame.image.load("assets/fish/fish_idle.png").convert_alpha()
-    hooked_image = pygame.image.load("assets/fish/fish_hooked.png").convert_alpha()
+    idle_image = pygame.image.load("assets/images/fish/fish_idle.png").convert_alpha()
+    hooked_image = pygame.image.load("assets/images/fish/fish_hooked.png").convert_alpha()
 
     # image dictionary
     state_imgs = {
