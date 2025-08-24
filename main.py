@@ -37,7 +37,7 @@ def main():
                 size=SIZE_FH,
                 state_machine_cls=FishState,
                 state_imgs=state_imgs,
-                animation_cls=FishAnimation
+                animation_instance=FishAnimation(speed=random.uniform(0.5,5.0))
             )
         )
 

@@ -6,5 +6,5 @@
 - you can drag fish to the bucket to collect them
 
 TODO:
-- clean up & refactor
-- allow drop-into-bucket: currently fish are only destroyed when they're dragged over the bucket and released, and not when dropped in
+- clean up & refactor (wip)
+- allow drop-into-bucket: currently fish are only destroyed when they're dragged over the bucket and released; if you drop them in they go through the bucket and back into the water

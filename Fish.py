@@ -6,12 +6,12 @@ import random
 
 class Fish(pygame.sprite.Sprite):
     # class constructor
-    def __init__(self, size, state_machine_cls, state_imgs, animation_cls, drop_limit_y=150):
+    def __init__(self, size, state_machine_cls, state_imgs, animation_instance, drop_limit_y=150):
         super().__init__()      # call constructor of superclass Sprite
 
         # components
         self.state_machine = state_machine_cls()    # state machine -- tracks logical state (idle, hooked, caught) and any timers
-        self.animation = animation_cls()            # controls animation independent of state
+        self.animation = animation_instance         # controls animation independent of state
 
         # map each state to a scaled image for rendering
         self.state_imgs = {
@@ -116,7 +116,6 @@ class Fish(pygame.sprite.Sprite):
 
 # main guard
 if __name__ == "__main__":
-    import pygame
     import sys
     from Animation import FishAnimation
     from state_machine import FishState
@@ -139,7 +138,7 @@ if __name__ == "__main__":
     test_fh = Fish(size=fh_size,
                    state_machine_cls=FishState,
                    state_imgs=imgs_by_state,
-                   animation_cls=FishAnimation,
+                   animation_instance=FishAnimation(speed=2),
                    drop_limit_y=150)
 
     all_fish = pygame.sprite.Group(test_fh)
